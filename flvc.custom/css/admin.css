@@ -1,0 +1,34 @@
+.flvccustom-config {
+    max-width: 960px;
+    margin: 20px auto;
+}
+
+.flvccustom-form .flvccustom-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 4px 0;
+    font-weight: 500;
+}
+
+.flvccustom-form .fullwidth {
+    width: 100%;
+}
+
+.flvccustom-preview {
+    margin-top: 10px;
+}
+
+.flvccustom-preview img {
+    max-width: 320px;
+    border-radius: 8px;
+    border: 1px solid #1b4f72;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.flvccustom-form .headerRow th {
+    background: #0a3d62;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

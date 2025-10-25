@@ -1,0 +1,154 @@
+body.login-page.flvccustom-theme {
+    min-height: 100vh;
+    background: linear-gradient(180deg, rgba(10, 61, 98, 0.95), rgba(10, 98, 138, 0.9));
+    color: #f4f6fb;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.flvccustom-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.flvccustom-login-card {
+    background: rgba(255, 255, 255, 0.95);
+    color: #0a3d62;
+    border-radius: 16px;
+    box-shadow: 0 18px 40px rgba(0, 38, 89, 0.35);
+    max-width: 1024px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.flvccustom-layout {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.flvccustom-layout .flvccustom-panel,
+.flvccustom-layout .flvccustom-highlight {
+    flex: 1 1 50%;
+    min-width: 320px;
+    padding: 3rem;
+}
+
+.flvccustom-highlight {
+    background: linear-gradient(135deg, rgba(10, 61, 98, 0.95), rgba(0, 153, 255, 0.95));
+    color: #fff;
+    position: relative;
+}
+
+.flvccustom-highlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25), transparent 60%),
+                radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.15), transparent 55%);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.flvccustom-highlight h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.flvccustom-highlight p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.flvccustom-features {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.flvccustom-features li {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem;
+    backdrop-filter: blur(4px);
+}
+
+.flvccustom-panel h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #0a3d62;
+}
+
+.flvccustom-panel .login_inputs {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.flvccustom-panel label {
+    font-weight: 600;
+    color: #0a3d62;
+}
+
+.flvccustom-panel input[type="text"],
+.flvccustom-panel input[type="password"] {
+    border-radius: 10px;
+    border: 1px solid rgba(10, 61, 98, 0.3);
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+}
+
+.flvccustom-panel input[type="submit"] {
+    background: linear-gradient(135deg, #0a3d62, #006bb3);
+    color: #fff;
+    border: none;
+    padding: 0.9rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flvccustom-panel input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(10, 61, 98, 0.25);
+}
+
+.flvccustom-layout.layout_b .flvccustom-highlight {
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+.flvccustom-layout.layout_b .flvccustom-panel {
+    flex: 1 1 100%;
+}
+
+.flvccustom-layout.layout_c {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.flvccustom-layout.layout_c .flvccustom-highlight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flvccustom-layout.layout_c .flvccustom-panel {
+    background: rgba(255, 255, 255, 0.98);
+}
+
+@media (max-width: 768px) {
+    .flvccustom-layout .flvccustom-panel,
+    .flvccustom-layout .flvccustom-highlight {
+        padding: 2rem;
+    }
+
+    .flvccustom-highlight h1 {
+        font-size: 2rem;
+    }
+}
