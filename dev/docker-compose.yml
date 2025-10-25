@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:10.6
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${GLPI_DB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${GLPI_DB_NAME}
+      MARIADB_USER: ${GLPI_DB_USER}
+      MARIADB_PASSWORD: ${GLPI_DB_PASSWORD}
+    volumes:
+      - ./data/db:/var/lib/mysql
+
+  glpi:
+    image: glpi/glpi:11.0.7
+    depends_on:
+      - db
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      GLPI_INSTALL_AUTO: "1"
+      GLPI_PLUGINS_FORCE_INSTALL: "flvc.custom"
+      GLPI_DB_HOST: db
+      GLPI_DB_NAME: ${GLPI_DB_NAME}
+      GLPI_DB_USER: ${GLPI_DB_USER}
+      GLPI_DB_PASSWORD: ${GLPI_DB_PASSWORD}
+    volumes:
+      - ./data/glpi/files:/var/www/html/glpi/files
+      - ./data/glpi/plugins:/var/www/html/glpi/plugins
+      - ../flvc.custom:/var/www/html/glpi/plugins/flvc.custom:ro

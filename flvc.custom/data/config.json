@@ -1,0 +1,9 @@
+{
+    "theme": "corporate-blue",
+    "layout": "layout_a",
+    "background_mode": "color",
+    "background_color": "#0a3d62",
+    "background_url": "",
+    "background_upload": "",
+    "welcome_message": "Bem-vindo ao GLPI!"
+}

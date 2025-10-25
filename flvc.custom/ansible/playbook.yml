@@ -1,0 +1,56 @@
+---
+- name: Deploy flvc.custom plugin
+  hosts: glpi_servers
+  become: true
+  vars:
+    glpi_root: /var/www/glpi
+    plugin_src: files/flvc.custom
+    plugin_dir: "{{ glpi_root }}/plugins/flvc.custom"
+  tasks:
+    - name: Ensure plugin directory exists
+      ansible.builtin.file:
+        path: "{{ plugin_dir }}"
+        state: directory
+        owner: "{{ glpi_owner | default('glpi') }}"
+        group: "{{ glpi_group | default('glpi') }}"
+        mode: "0750"
+
+    - name: Sync plugin files
+      ansible.posix.synchronize:
+        src: "{{ plugin_src }}/"
+        dest: "{{ plugin_dir }}/"
+        delete: true
+        recursive: true
+
+    - name: Set ownership recursively
+      ansible.builtin.file:
+        path: "{{ plugin_dir }}"
+        owner: "{{ glpi_owner | default('glpi') }}"
+        group: "{{ glpi_group | default('glpi') }}"
+        recurse: true
+
+    - name: Ensure install script is executable
+      ansible.builtin.file:
+        path: "{{ plugin_dir }}/scripts/install.sh"
+        mode: "0750"
+
+    - name: Run install script permissions fix
+      ansible.builtin.command: "{{ plugin_dir }}/scripts/install.sh {{ glpi_owner | default('glpi') }} {{ glpi_group | default('glpi') }}"
+
+- name: Rollback flvc.custom plugin
+  hosts: glpi_servers
+  become: true
+  vars:
+    glpi_root: /var/www/glpi
+    plugin_dir: "{{ glpi_root }}/plugins/flvc.custom"
+  tasks:
+    - name: Archive current plugin directory
+      ansible.builtin.archive:
+        path: "{{ plugin_dir }}"
+        dest: "/tmp/flvc.custom-rollback-{{ ansible_date_time.epoch }}.tar.gz"
+      when: flvccustom_archive | default(true)
+
+    - name: Remove plugin directory
+      ansible.builtin.file:
+        path: "{{ plugin_dir }}"
+        state: absent
