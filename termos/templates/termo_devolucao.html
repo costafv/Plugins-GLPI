@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: DejaVu Sans, Arial, sans-serif; font-size: 12px; color: #333; }
+        h1 { text-align: center; font-size: 18px; margin-bottom: 20px; }
+        .section { margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #666; padding: 6px; text-align: left; }
+        .signature { margin-top: 50px; text-align: center; }
+        .signature div { margin-bottom: 40px; }
+    </style>
+</head>
+<body>
+    <h1>{{term_label}}</h1>
+    <div class="section">
+        <p>Eu, <strong>{{user_name}}</strong>, registro/crachá <strong>{{user_registration}}</strong>, declaro que estou devolvendo à unidade <strong>{{entity}}</strong> o ativo abaixo descrito, em condições de uso e com todos os seus acessórios:</p>
+        <table>
+            <tr><th>Tipo</th><td>{{itemtype_label}}</td></tr>
+            <tr><th>Nome</th><td>{{item_name}}</td></tr>
+            <tr><th>Serial</th><td>{{item_serial}}</td></tr>
+            <tr><th>Patrimônio/Tag</th><td>{{item_asset_tag}}</td></tr>
+            <tr><th>Outros identificadores</th><td>{{item_otherserial}}</td></tr>
+            <tr><th>Localização</th><td>{{location}}</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <p>Declaro que todos os dados corporativos foram removidos do equipamento e que não permaneceu nenhuma informação confidencial sob minha posse.</p>
+        <p>Caso seja identificada qualquer pendência ou dano não informado, estou ciente de que poderei ser responsabilizado conforme as políticas internas.</p>
+    </div>
+
+    <div class="section">
+        <p><strong>Observações:</strong></p>
+        <p>{{observations}}</p>
+    </div>
+
+    <div class="section">
+        <p>{{city}}, {{current_date}}</p>
+    </div>
+
+    <div class="signature">
+        <div>__________________________________________<br>{{user_name}}</div>
+        <div>__________________________________________<br>{{responsible_name}}</div>
+    </div>
+</body>
+</html>
